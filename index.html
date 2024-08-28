@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multiselect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="multiselect/jquery.multiselect.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <select name="langOpt[]" multiple id="langOpt">
+                <option value="">test</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+                <option value="Objective-C">Objective-C</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Perl">Perl</option>
+                <option value="PHP">PHP</option>
+                <option value="Ruby on Rails">Ruby on Rails</option>
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+                <option value="HTML">HTML</option>
+                <option value="XML">XML</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- JS & CSS library of MultiSelect plugin -->
+    <script src="multiselect/jquery.multiselect.js"></script>
+
+    <script>
+        $('#langOpt').multiselect({
+            columns: 1,
+            texts: {
+                placeholder: 'Select Languages',
+                search: 'Search Languages'
+            },
+            search: true,
+            selectAll: true
+        });
+
+
+        $(document).ready(function(){
+            $(document).on("change","#langOpt", function(){
+                var value = $(this).val();
+                console.log(value)
+            });
+        }); 
+    </script>
+</body>
+
+</html>
